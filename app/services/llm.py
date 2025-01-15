@@ -4,12 +4,13 @@ from fastapi import APIRouter
 from langchain_openai import ChatOpenAI
 from langchain.agents import initialize_agent, AgentType, Tool
 
+#TODO: Implementação aqui da escolha de outros modelos
+
 MOVIE_API_BASE_URL = "https://api.themoviedb.org/3/movie"
 API_KEY = '818306944e112ccf75d496086ac6c42e' 
 
 router = APIRouter()
 
-# Funções para buscar informações da API
 def fetch_movie_id_by_name(movie_name: str) -> str:
     try:
         url = f"https://api.themoviedb.org/3/search/movie?api_key={API_KEY}&query={movie_name}&language=pt-BR"

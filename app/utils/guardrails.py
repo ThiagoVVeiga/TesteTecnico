@@ -1,5 +1,7 @@
 import re
 
+#TODO: Melhoria nos guardrails para analise de mensagens de uma forma mais dinamica
+
 def apply_guardrails(response: str) -> str:
     """
     Aplica regras de guardrails para verificar a resposta antes de retorná-la.
@@ -13,7 +15,6 @@ def apply_guardrails(response: str) -> str:
     if check_for_links(response):
         return "Desculpe, não posso fornecer links externos. Pergunte-me sobre detalhes dos filmes!"
     
-    # Se passar por todos os guardrails, retorna a resposta normal.
     return response
 
 def check_offensive_language(response: str) -> bool:
@@ -34,11 +35,9 @@ def check_movie_context(response: str) -> bool:
         "personagem", "data de lançamento", "direção", "similar"
     ]
     
-    # Verifica se a resposta contém palavras-chave simples relacionadas ao filme
     if any(keyword in response.lower() for keyword in allowed_keywords):
         return True
     
-    # Verifica padrões mais complexos com expressões regulares (ex.: perguntas sobre elenco, diretores, etc.)
     movie_patterns = [
         r"(quem|qual).*elenco.*filme",  
         r"(quem|qual).*ator.*filme",    
@@ -48,7 +47,6 @@ def check_movie_context(response: str) -> bool:
         r"quando.*lançamento.*filme"    
     ]
     
-    # Se algum dos padrões de pergunta for encontrado, é um contexto relevante
     if any(re.search(pattern, response.lower()) for pattern in movie_patterns):
         return True
     

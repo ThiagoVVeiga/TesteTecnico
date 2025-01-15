@@ -8,6 +8,8 @@ router = APIRouter()
 class QuestionRequest(BaseModel):
     question: str
 
+#TODO: Implementação aqui da escolha de outros modelos
+
 @router.post("/ask")
 def ask_chatbot(request: QuestionRequest):
     question = request.question
