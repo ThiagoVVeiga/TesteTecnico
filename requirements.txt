@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+requests
+openai
+pytest 
+httpx
+langchain-openai
+langchain_community
+langchain
+asyncio
