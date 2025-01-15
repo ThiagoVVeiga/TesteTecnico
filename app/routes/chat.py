@@ -23,7 +23,7 @@ def ask_chatbot(request: QuestionRequest):
         response = generate_response(question)
 
         print(f"Resposta final após aplicação das regras: {apply_guardrails(response)}")
-        return {"response": apply_guardrails(response)}
+        return {apply_guardrails(response)}
 
     except Exception as e:
         print(f"Erro durante o processamento da pergunta: {str(e)}") 

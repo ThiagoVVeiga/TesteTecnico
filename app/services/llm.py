@@ -99,12 +99,12 @@ def fetch_similar_movies(movie_name: str) -> List:
 tools = [
     Tool(name="Fetch Popular Movies", func=fetch_popular_movies, description="Busca filmes populares (responda em português, detalhe um pouco mais sobre sua resposta e me mostre uma lista de nomes de filmes populares)"),
     Tool(name="Fetch Cast", func=fetch_cast, description="Busca o elenco de um filme  (responda em português, detalhe um pouco mais sobre sua resposta)"),
-    Tool(name="Fetch Similar Movies", func=fetch_similar_movies, description="Busca filmes semelhantes e serve para dar recomendações (responda em português, detalhe um pouco mais sobre sua resposta e me mostre uma lista de nomes de filmes similares)"),
+    Tool(name="Fetch Similar Movies", func=fetch_similar_movies, description="Busca filmes semelhantes e serve para dar recomendações de filmes por gênero também ou por nome (responda em português, detalhe um pouco mais sobre sua resposta e me mostre uma lista de nomes de filmes similares)"),
     Tool(name="Fetch Synopsis", func=fetch_synopsis, description="Busca a sinopse de um filme (responda em português, detalhe um pouco mais sobre sua resposta)"),
     Tool(name="Fetch Rating", func=fetch_rating, description="Busca a avaliação de um filme (responda em português, detalhe um pouco mais sobre sua resposta)"),
 ]
 
-llm = ChatOpenAI(temperature=0.8)
+llm = ChatOpenAI(temperature=0.7)
 
 def generate_response(question: str) -> str:
     agent = initialize_agent(tools, llm, agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True, handle_parsing_errors=True)

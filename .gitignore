@@ -1,0 +1,30 @@
+# Byte-compiled files (Caso houvesse)
+*.py[cod]
+__pycache__/
+*.pyo
+
+# Virtual environment
+venv/
+.env/
+
+# IDE/Editor configurations (Caso houvesse)
+.vscode/
+.idea/
+
+# Logs (Caso houvesse)
+*.log
+*.out
+*.err
+
+# Environment variables
+.env
+
+# Pytest cache
+.pytest_cache/
+
+# Build directories (Caso existisse)
+build/
+
+
+
+

@@ -7,6 +7,7 @@ client = TestClient(app)
 # Então para a construção desse projeto, foi utilizada a filosofia de primeiro tentar
 # fazer os testes, para depois iniciar o código, ou seja, em um formato já imaginando
 # os resultados esperados, antes mesmo de ter o código
+# Ou seja, foi utilizada a arquitetura TDD
 
 def test_search_movie():
     response = client.get("/movies/search?movie_name=Deadpool")

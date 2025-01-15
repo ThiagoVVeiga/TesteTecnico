@@ -32,7 +32,7 @@ def check_movie_context(response: str) -> bool:
     allowed_keywords = [
         "filme", "ator", "diretor", "elenco", "série", "trailer", "classificação", 
         "episódio", "produção", "história", "sinopse", "avaliação", "recomendação", 
-        "personagem", "data de lançamento", "direção", "similar"
+        "personagem", "data de lançamento", "direção", "similar", "gênero"
     ]
     
     if any(keyword in response.lower() for keyword in allowed_keywords):
