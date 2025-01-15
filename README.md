@@ -43,7 +43,15 @@ O servidor estará disponível em http://localhost:8000.
 
 ## Executando os Testes Unitários 🧪
 
-Você pode testar as funcionalidades da API utilizando curl para simular as requisições. Abaixo estão exemplos de como testar as perguntas relacionadas ao sistema de chatbot:
+Para garantir que tudo esteja funcionando corretamente, execute os testes automatizados utilizando o pytest:
+
+```bash
+python -m pytest
+```
+
+Isso executará todos os testes unitários do sistema.
+
+## Testes de API com cURL 🧑‍💻
 
 1. Qual é o elenco do filme Deadpool?
 
