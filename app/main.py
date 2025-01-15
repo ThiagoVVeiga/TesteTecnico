@@ -18,6 +18,7 @@ app.add_middleware(
 
 app.include_router(chat.router, prefix="/chat", tags=["Chatbot"])
 
+
 @app.get("/")
 async def root():
     return {"message": "Chatbot de Cinema está funcionando! 🎬"}

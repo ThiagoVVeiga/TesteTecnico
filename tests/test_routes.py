@@ -9,11 +9,13 @@ client = TestClient(app)
 # os resultados esperados, antes mesmo de ter o código
 # Ou seja, foi utilizada a arquitetura TDD
 
+
 def test_search_movie():
     response = client.get("/movies/search?movie_name=Deadpool")
     assert response.status_code == 200
     assert response.json() is not None
     assert "results" in response.json()
+
 
 def test_popular_movies():
     response = client.get("/movies/popular")
@@ -21,11 +23,13 @@ def test_popular_movies():
     assert response.json() is not None
     assert "results" in response.json()
 
+
 def test_top_rated_movies():
     response = client.get("/movies/top_rated")
     assert response.status_code == 200
     assert response.json() is not None
-    assert "results" in response.json() 
+    assert "results" in response.json()
+
 
 def test_movie_details():
     response = client.get("/movies/567604")
@@ -33,19 +37,32 @@ def test_movie_details():
     assert response.json() is not None
     assert "title" in response.json()
 
+
 def test_movie_question(self, mock_generate_response):
-    mock_generate_response.return_value = "O ator principal de Deadpool é Ryan Reynolds."
-        
-    response = client.post("/ask", json={"question": "Qual é o ator principal de Deadpool?"})
-        
+    mock_generate_response.return_value = (
+        "O ator principal de Deadpool é Ryan Reynolds."
+    )
+
+    response = client.post(
+        "/ask", json={"question": "Qual é o ator principal de Deadpool?"}
+    )
+
     assert response.status_code == 200
-    assert response.json() == {"response": "O ator principal de Deadpool é Ryan Reynolds."}
+    assert response.json() == {
+        "response": "O ator principal de Deadpool é Ryan Reynolds."
+    }
+
 
 def test_non_movie_question(self, mock_generate_response):
-        mock_generate_response.return_value = "Programação é uma habilidade muito importante no mundo da tecnologia."
+    mock_generate_response.return_value = (
+        "Programação é uma habilidade muito importante no mundo da tecnologia."
+    )
 
-        response = client.post("/ask", json={"question": "Você sabe algo sobre programação?"})
+    response = client.post(
+        "/ask", json={"question": "Você sabe algo sobre programação?"}
+    )
 
-        assert response.status_code == 200
-        assert response.json() == {"response": "Desculpe, mas isso não está relacionado a filmes. Pergunte-me sobre filmes, atores ou diretores!"}
-        
+    assert response.status_code == 200
+    assert response.json() == {
+        "response": "Desculpe, mas isso não está relacionado a filmes. Pergunte-me sobre filmes, atores ou diretores!"
+    }

@@ -4,7 +4,7 @@ Este é um chatbot que responde perguntas sobre filmes utilizando a API do OpenA
 ## Requisitos
 Antes de rodar o projeto, certifique-se de ter os seguintes requisitos instalados:
 
-- Python 3.x
+- Python 3.x (Estou usando o Python 3.10.11)
 - Bibliotecas necessárias:
   - fastapi
   - uvicorn
@@ -41,6 +41,12 @@ python -m uvicorn app.main:app --reload
 
 O servidor estará disponível em http://localhost:8000.
 
+## Executando o Sistema com Docker
+
+Foi feita a inicialização da configuração para executar o projeto rodando Docker
+
+Devido a alguns problemas na minha máquina, para a questão do wsl do Ubuntu, deixo como default a subida do projeto usando os comando citados na sessão (Executando o Sistema)
+
 ## Executando os Testes Unitários 🧪
 
 Para garantir que tudo esteja funcionando corretamente, execute os testes automatizados utilizando o pytest:
@@ -50,6 +56,28 @@ python -m pytest
 ```
 
 Isso executará todos os testes unitários do sistema.
+
+## Seguindo os padrões de projetos
+
+Foi feita a utilização da biblioteca black para formatar o código em Python.
+
+Para rodar o formatador, usar o comando abaixo
+
+```bash
+black .
+```
+
+## Documentação das APIS (swagger)
+
+É possível utilizar o swagger também para esse projeto, acessando:
+
+http://127.0.0.1:8000/docs
+
+ou também
+
+http://127.0.0.1:8000/redoc
+
+No caso ainda pode ser melhor configurado para aparecer mais rotas
 
 ## Testes de API com cURL 🧑‍💻
 
